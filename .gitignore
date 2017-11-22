@@ -1,0 +1,12 @@
+*.xml
+*.html
+*.zip
+*.7z
+*/Results/
+*/.idea/
+amazon - variables end/selenium-screenshot-1.png
+Bookshelfs_Minh Dao/appium-screenshot-2.png
+Bookshelfs_Minh Dao/appium-screenshot-1.png
+*.pyc
+AsX/
+robotFramework-vw-ebooks/*

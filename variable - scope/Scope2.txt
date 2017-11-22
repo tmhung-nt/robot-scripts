@@ -1,0 +1,17 @@
+*** Settings ***
+Resource          Resources/VariableRepository.robot
+
+*** Test Cases ***
+Use Variable from Resource File
+    Log    ${variable_1}
+    @{list_variable} =  set variable  123  456  789
+    print something  @{list_variable}
+
+*** Keywords ***
+print something
+    [Arguments]  @{input_argument}
+    Log  ${input_argument}
+
+    Log  @{input_argument}[0]
+
+    Log  @{input_argument}[1]

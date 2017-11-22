@@ -1,0 +1,19 @@
+*** Settings ***
+Resource          ../Resources/DirectoryHandler.txt
+Resource          ../Resources/FileHandler.txt
+
+*** Test Cases ***
+Test case 01
+    [Documentation]    Folder related actions
+    DirectoryHandler.Create New Directory    Outputs
+    DirectoryHandler.Create New Directory    Outputs/sub folder 1
+
+Test case 02
+    [Documentation]    File related actions
+    [Tags]    wabc    asdf
+    FileHandler.Create New File    Outputs/Sub Folder 1/text_1.txt    This is the content of text_1.txt
+    DirectoryHandler.Create New Directory    Outputs/Sub Folder 2
+    FileHandler.Move File To Another Folder    Outputs/Sub Folder 1/text_1.txt    Outputs/Sub Folder 2/text_2.txt
+    Directory Should Be Empty    Outputs/Sub Folder 1
+
+*** Keywords ***

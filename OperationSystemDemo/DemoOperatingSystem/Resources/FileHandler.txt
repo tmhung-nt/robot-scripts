@@ -1,0 +1,13 @@
+*** Settings ***
+Library           OperatingSystem
+
+*** Keywords ***
+Create New File
+    [Arguments]    ${file_path}    ${content}
+    Create File    ${file_path}    ${content}
+    File Should Exist    ${file_path}
+
+Move File To Another Folder
+    [Arguments]    ${source}    ${destination}
+    Move File    ${source}    ${destination}
+    File Should Exist    ${destination}

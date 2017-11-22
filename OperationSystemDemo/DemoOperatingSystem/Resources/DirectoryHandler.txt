@@ -1,0 +1,13 @@
+*** Settings ***
+Library           OperatingSystem
+
+*** Keywords ***
+Create New Directory
+    [Arguments]    ${path}
+    [Documentation]    Create new folder then check it is created
+    OperatingSystem.Create Directory    ${path}
+    Directory Should Exist    ${path}
+
+Directory should be empty
+    [Arguments]    ${path}
+    OperatingSystem.Directory Should Be Empty    ${path}

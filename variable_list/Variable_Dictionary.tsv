@@ -1,0 +1,19 @@
+*Settings*							
+Library	Collections						
+							
+*Variables*							
+&{PERSONAL_DETAILS}	Name=HungTran	Team=SecureLogix	Email=tranmanhhung@tma.com.vn	Position=Consultant			
+							
+*Test Cases*							
+Few Actions on Dictionary	${dictionary_length}=	Set Variable	Get Length	${PERSONAL_DETAILS}			
+	Log	dictionary_length=${dictionary_length}					
+	${key}	Get Dictionary Keys	${PERSONAL_DETAILS}				
+	Log	key=${key}					
+	${item} =	Get Dictionary Items	${PERSONAL_DETAILS}				
+	Log 	item=${item}					
+	${name} =	Get From Dictionary	${PERSONAL_DETAILS}	Name			
+	Should Be Equal As Strings	${name}	HungTran				
+	&{copy} = 	Copy Dictionary	${PERSONAL_DETAILS}				
+	Dictionaries Should Be Equal	${PERSONAL_DETAILS}	${copy}				
+	${team} = 	Set Variable	${PERSONAL_DETAILS.Team}				
+	Should Be Equal As Strings	${team}	SecureLogix				
