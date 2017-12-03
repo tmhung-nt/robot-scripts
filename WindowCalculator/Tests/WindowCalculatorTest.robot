@@ -1,6 +1,7 @@
 *** Settings ***
 Documentation     To test basic calculation on Windows 10 Native Calculator app
-Library           AppiumLibrary
+#Library           AppiumLibrary
+Library     ../Libraries/ExtendedAppiumLibrary.py
 Resource          ../Resources/CalculatorApp.robot
 
 
@@ -18,6 +19,7 @@ Test Addition Operation
     [Tags]  w
     Get Page Source     calculator
     Calculate On Two Numbers  Add  One  Seven  8
+    switch window
 
 Test Minus Operation
     Calculate On Two Numbers  Minus  Nine  Three  5
