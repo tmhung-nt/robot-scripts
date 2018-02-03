@@ -1,13 +1,32 @@
 *** Settings ***
 Library  Collections
-
+Library  ./log_handler.py
 
 *** Variables ***
 @{My_List_Variable}    Abc    cde    asdlfk    cvzcxvmn    iudsf    239487sd    # example
 &{dictionary_var}      key=value
 
+# robot -d Results -i fields variable_list.robot
 
 *** Test Cases ***
+Log Fields
+    [tags]  fields
+    ${log_msg} =  set variable  "O34GHCexjYnEcTT1S0i5wVejdh5MXiz6cClpaUd4WpFqpOA873NXT80EtZULJzMd" "GROUP08ST109" "5.0.26/18012903/w" "3" "0000000000009810" "180203211533" "B03 PDF_func" "NotOpen" "" "OpenBook" "12346tst000394" "" "" "" "" "100%(40,-1)" "" "" "" "" "" "" ""
+    @{fields} =  extract fields  ${log_msg}
+    ${user_id} =  set variable  @{fields}[0]
+    ${student_id} =  set variable  @{fields}[1]
+    ${app_version} =  set variable  @{fields}[2]
+    ${log_version} =  set variable  @{fields}[3]
+    ${device_id} =  set variable  @{fields}[4]
+    ${timestampe} =  set variable  @{fields}[5]
+    ${content_id} =  set variable  @{fields}[6]
+    ${not_open} =  set variable  @{fields}[7]
+    ${open_book} =  set variable  @{fields}[9]
+    ${content_title} =  set variable  @{fields}[10]
+    ${page_pos} =  set variable  @{fields}[15]
+    @{blank_fields} =  create list  @{fields}[8]  @{fields}[11]  @{fields}[12]  @{fields}[13]  @{fields}[14]
+    ...  @{fields}[16]  @{fields}[17]  @{fields}[18]  @{fields}[19]  @{fields}[20]  @{fields}[21]  @{fields}[22]
+
 Test_Pass Varaibles to keyword
     pass list to keyword  ${My_List_Variable}
     pass dictionary to keyword  ${dictionary_var}
