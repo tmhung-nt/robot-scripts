@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation     This is some basic info about the whole suite
-Test Setup        Common.Begin Web Test
-Test Teardown     Common.End Web Test
+Test Setup        Begin Web Test
+Test Teardown     End Web Test
 Resource          ../Resources/Common.robot
 Resource          ../Resources/Amazon.robot
 

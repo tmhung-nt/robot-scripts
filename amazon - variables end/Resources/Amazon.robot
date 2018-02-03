@@ -1,10 +1,13 @@
 *** Settings ***
+Resource          ./Common.robot
 Resource          PO/Cart.robot
 Resource          PO/LandingPage.robot
 Resource          PO/Product.robot
 Resource          PO/SearchResults.robot
 Resource          PO/SignIn.robot
 Resource          PO/TopNav.robot
+
+Library  Selenium2Library
 
 *** Keywords ***
 Search for Products

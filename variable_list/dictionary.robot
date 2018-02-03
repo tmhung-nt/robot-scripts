@@ -34,6 +34,13 @@ Test 5
     @{LIST} =  convert to list  123 456 789 111
     log list  ${LIST}
 
+Test 6
+    @{LIST} =  create list  1  3  5  7
+    log  ${LIST}
+    log  @{LIST}[1]
+    log  @{LIST}   #  LOG   1  3  5  7
+
+
 *** Keywords ***
 Get key's value from Dictionary
     [Arguments]  ${key}
